@@ -1,1 +1,88 @@
-<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js></script><script>$(document).ready(function(){var refresh;var duration=1E3*10;var giphy={baseURL:"https://api.giphy.com/v1/gifs/",apiKey:"0UTRbFtkMxAplrohufYco5IY74U8hOes",tag:"doughnut",type:"random",rating:"pg-13"};var $gif_wrap=$("#gif-wrap");var giphyURL=encodeURI(giphy.baseURL+giphy.type+"?api_key="+giphy.apiKey+"&tag="+giphy.tag+"&rating="+giphy.rating);var newGif=function(){return $.getJSON(giphyURL,function(json){return renderGif(json.data)})};var renderGif=function(_giphy){console.log(_giphy);$gif_wrap.css({"background-image":'url("'+ _giphy.image_original_url+'")'})};newGif();var newGifButton=$("#new-gif");newGifButton.click(newGif)});</script><style class=INLINE_PEN_STYLESHEET_ID>body{position:relative;height:100vh;width:100%}#gif-wrap{position:relative;float:right;height:200px;width:400px;background-color:#000;background-size:contain;background-repeat:no-repeat;background-position:center;z-index:-1}#new-gif{padding:.5rem 1rem;font-weight:600;background:#424242;z-index:10;color:#fff;border-radius:30px;border:0;font-size:14px;position:absolute;top:.5rem;right:.5rem;-webkit-transition:background .15s ease;transition:background .15s ease;cursor:pointer}#new-gif:hover{background:#626262}</style><div id=gif-wrap></div><button id=new-gif>New Gif</button>
+	<div id="gif-wrap"></div>
+	<button id="new-gif">New Gif</button>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script>
+	    $(document).ready(function () {
+			  // Initiate gifLoop for set interval
+			  var refresh;
+			  // Duration count in seconds
+			  const duration = 1000 * 10;
+			  // Giphy API defaults
+			  const giphy = {
+			    baseURL: "https://api.giphy.com/v1/gifs/",
+			    apiKey: "0UTRbFtkMxAplrohufYco5IY74U8hOes",
+			    tag: "doughnut",
+			    type: "random",
+			    rating: "pg-13" };
+
+			  // Target gif-wrap container
+			  const $gif_wrap = $("#gif-wrap");
+			  // Giphy API URL
+			  let giphyURL = encodeURI(
+			  giphy.baseURL +
+			  giphy.type +
+			  "?api_key=" +
+			  giphy.apiKey +
+			  "&tag=" +
+			  giphy.tag +
+			  "&rating=" +
+			  giphy.rating);
+
+			  // Call Giphy API and render data
+			  var newGif = () => $.getJSON(giphyURL, json => renderGif(json.data));
+
+			  // Display Gif in gif wrap container
+			  var renderGif = _giphy => {
+			    console.log(_giphy);
+			    // Set gif as bg image
+			    $gif_wrap.css({
+			      "background-image": 'url("' + _giphy.image_original_url + '")' });
+			  };
+			  newGif();
+
+
+			  const newGifButton = $('#new-gif');
+
+			  newGifButton.click(newGif);
+			});
+	  </script>
+
+		<style>
+			body {
+				position: relative;
+				height: 100vh;
+				width: 100%;
+			}
+
+			#gif-wrap {
+				position: relative;
+				float: right;
+				margin: auto;
+				height: 200px;
+				width: 400px;
+				background-color: #000;
+				background-size: contain;
+				background-repeat: no-repeat;
+				background-position: center;
+			}
+
+			#new-gif {
+				padding: .5rem 1rem;
+				font-weight: 600;
+				background: #424242;
+				z-index: 10;
+				color: #fff;
+				border-radius: 30px;
+				border: 0;
+				font-size: 14px;
+				position: absolute;
+				top: 0.5rem;
+				right: 0.5rem;
+				-webkit-transition: background 0.15s ease;
+				transition: background 0.15s ease;
+				cursor: pointer;
+			}
+			#new-gif:hover {
+				background: #626262;
+			}
+		</style>
