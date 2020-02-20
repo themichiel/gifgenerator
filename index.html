@@ -1,5 +1,5 @@
 	<div id="gif-wrap" class="border-rainbow"></div>
-	<button id="new-gif"><span class=reload>&#x21bb;</span> Nieuw gifje</button>
+	<button id="new-gif"><div class=reload>&#x21bb;</div> Nieuw gifje</button>
 	<div id="credits">© Michiel Theelen</div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<script>
@@ -87,9 +87,10 @@
 			background: #626262;
 		}
 		
-		#new-gif:hover span {
+		#new-gif:hover .reload {
 			transform: rotate(360deg);
 			transition: transform 1s ease-in-ease-out;
+			display: inline-block;
 		}
 
 		#credits {
