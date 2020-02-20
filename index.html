@@ -86,12 +86,6 @@
 		#new-gif:hover {
 			background: #626262;
 		}
-		
-		#new-gif:hover .reload {
-			transform: rotate(360deg);
-			transition: transform 1s ease-in-ease-out;
-			display: inline-block;
-		}
 
 		#credits {
 			position: absolute;
@@ -102,7 +96,13 @@
 			right: 1rem;
 		}
 		.reload {
-		  font-family: Lucida Sans Unicode
+		  	font-family: Lucida Sans Unicode;
+			display: inline-block;
+		}
+		
+		.reload:hover {
+			transform: rotate(360deg);
+			transition: transform 1s ease-in-ease-out;
 		}
 
 		@-webkit-keyframes rainbow {
