@@ -1,4 +1,4 @@
-	<div id="gif-wrap"></div>
+	<div id="gif-wrap" class="border-rainbow"></div>
 	<button id="new-gif">Nieuw gifje</button>
 	<div id="credits">© Michiel Theelen</div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -84,5 +84,15 @@
 			}
 			#new-gif:hover {
 				background: #626262;
-			}								  
+			}	
+			
+			@-webkit-keyframes rainbow {
+			  0% {border-color: hsl(0, 100%, 50%);}
+			  100% {border-color: hsl(255, 100%, 50%);}
+			}
+
+			.border-rainbow{
+			  border: 4px solid hsl(0, 100%, 50%);
+			  -webkit-animation: rainbow 5s infinite alternate;
+			}
 		</style>
