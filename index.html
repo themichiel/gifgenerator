@@ -12,7 +12,7 @@
 			const giphy = {
 				baseURL: "https://api.giphy.com/v1/gifs/",
 				apiKey: "0UTRbFtkMxAplrohufYco5IY74U8hOes",
-				tag: "cat",
+				tag: "blooper",
 				type: "random",
 				rating: "pg-13" };
 
@@ -98,6 +98,11 @@
 		.reload {
 		  	font-family: Lucida Sans Unicode;
 			display: inline-block;
+		}
+		
+		#new-gif:hover .reload {
+			transform: rotate(360deg);
+			trasition: transform 0.5s ease-in-out;
 		}
 		
 		@-webkit-keyframes rainbow {
